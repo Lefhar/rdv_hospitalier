@@ -6,12 +6,13 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">Nom de famille</th>
                     <th scope="col">Prenom</th>
                     <th scope="col">Date de naissance</th>
                     <th scope="col">Téléphone</th>
                     <th scope="col">Email</th>
+
+                    <th scope="col">Ajout RDV</th>
                     <th scope="col">Profil</th>
                     <th scope="col">Supprimer</th>
                 </tr>
@@ -20,22 +21,25 @@
                 <?php foreach ($data['patients'] as $obj) {
                     ?>
                     <tr>
-                        <th scope="row"><?= $obj['id']; ?></th>
-                        <th scope="row"><?= $obj['lastname']; ?></th>
-                        <th scope="row"><?= $obj['firstname']; ?></th>
-                        <th scope="row"><?= $obj['birthdate']; ?></th>
-                        <th scope="row"><?= $obj['phone']; ?></th>
-                        <th scope="row"><?= $obj['mail']; ?></th>
-                        <th scope="row">
+                        <td><?= $obj['lastname']; ?></td>
+                        <td ><?= $obj['firstname']; ?></td>
+                        <td ><?= $obj['birthdate']; ?></td>
+                        <td ><?= $obj['phone']; ?></td>
+                        <td ><?= $obj['mail']; ?></td>
+                        <td>
+
+                            <a  class="btn btn-info" href="/ajoutrendezvous&id=<?= $obj['id']; ?>">Ajouter Rdv</a>
+                        </td>
+                        <td >
                             <a  class="btn btn-info" href="/profilpatient&id=<?= $obj['id']; ?>">Editer</a>
-                        </th>
-                        <th scope="row">
+                        </td>
+                        <td>
                             <form action="supprimerpatient" method="post">
                                 <input name="page" type="hidden" value="<?php if(!empty($_GET['p'])){ echo $_GET['p'];} ?>">
                                 <input name="id" type="hidden" value="<?= $obj['id']; ?>">
                                 <button class="btn btn-danger">Supprimer</button>
                             </form>
-                            </th>
+                            </td>
 
                     </tr>
                 <?php } ?>
