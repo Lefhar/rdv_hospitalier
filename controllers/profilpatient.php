@@ -2,31 +2,19 @@
 
 class profilpatient
 {
-    private $db; // déclaration de la variable de connexion
-    public int $id;
-
-    /**
-     * @brief  construction l'objet de la connexion avec l'ordre de se connecté à la bdd par la class Database
-     */
-    public function __construct()
+    public function index()
     {
-        $this->db = Database::connect();
-    }
+        include(baseDir . 'models/modifierpatientModel.php');
+        $profil = new modifierpatientModel();
+        $profil->setId(is_numeric($_GET['id']) ? (int)$_GET['id'] : 0);
+        $data = $profil->index();
+        if ($data['success']) {
 
-    /**
-     * @param int $page
-     */
-    public function setId(int $page)
-    {
-        $this->id = $page;
-    }
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->id;
+            header('Location: index.php?page=listepatients');
+        }
+        include(baseDir . 'views/header.php');
+        include(baseDir . 'views/profil-patient.php');
+        include(baseDir . 'views/footer.php');
     }
 
 }

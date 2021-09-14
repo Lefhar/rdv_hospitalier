@@ -11,7 +11,7 @@ class supprimerpatient
         if ($data['success']) {
             $getPage ='';
             if(!empty($_POST['page'])){
-                $getPage = '&p='.$_POST['page'];
+                $getPage = '&p='.is_numeric($_POST['page']) ? (int)$_POST['page'] : 0;
             }
             header('Location: index.php?page=listepatients'.$getPage);
         }

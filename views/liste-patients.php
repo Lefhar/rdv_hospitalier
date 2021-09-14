@@ -12,6 +12,7 @@
                     <th scope="col">Date de naissance</th>
                     <th scope="col">Téléphone</th>
                     <th scope="col">Email</th>
+                    <th scope="col">Profil</th>
                     <th scope="col">Supprimer</th>
                 </tr>
                 </thead>
@@ -25,6 +26,9 @@
                         <th scope="row"><?= $obj['birthdate']; ?></th>
                         <th scope="row"><?= $obj['phone']; ?></th>
                         <th scope="row"><?= $obj['mail']; ?></th>
+                        <th scope="row">
+                            <a  class="btn btn-info" href="/profilpatient&id=<?= $obj['id']; ?>">Editer</a>
+                        </th>
                         <th scope="row">
                             <form action="supprimerpatient" method="post">
                                 <input name="page" type="hidden" value="<?php if(!empty($_GET['p'])){ echo $_GET['p'];} ?>">
