@@ -48,7 +48,7 @@ class listerendezvousModel
             $data['pageActuelle'] = 1; // La page actuelle est la n°1
         }
         $debut = ($data['pageActuelle'] - 1) * $patientParPage;
-        $listpatients = $this->db->prepare('SELECT * FROM appointments join patients on idPatients=patients.id ORDER BY dateHour DESC LIMIT :debut, :nombre');
+        $listpatients = $this->db->prepare('SELECT patients.id idpatient, appointments.id as idapp, patients.lastname,patients.firstname, patients.birthdate,patients.phone, patients.mail, appointments.dateHour FROM appointments join patients on idPatients=patients.id ORDER BY dateHour DESC LIMIT :debut, :nombre');
 
         $listpatients->bindParam(':debut', $debut, PDO::PARAM_INT);
         $listpatients->bindParam(':nombre', $patientParPage, PDO::PARAM_INT);

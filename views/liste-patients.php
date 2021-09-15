@@ -70,6 +70,9 @@
                     ?>
                 </ul>
             </nav>
-        <?php } ?>
+        <?php }else{ ?>
+                <h2>Aucun patient veuillez ajouter un patient</h2>
+            <a class="btn btn-success" href="/ajoutpatient"> Ajouter un patient</a>
+        <?php }?>
     </div>
 </div>

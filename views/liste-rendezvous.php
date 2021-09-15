@@ -1,7 +1,8 @@
 <div class="container">
     <div class="row p-2">
+        <h1>Listes des rendez-vous</h1>
         <?php if (!empty($data)) { ?>
-            <a class="btn btn-success" href="/ajoutpatient"> Ajouter un patient</a>
+
             <?php if(!empty($data['error'])){echo '<div class="alert alert-danger" role="alert">'.$data['error'].'</div>';}?>
             <table class="table">
                 <thead>
@@ -11,9 +12,8 @@
                     <th scope="col">Date de naissance</th>
                     <th scope="col">Téléphone</th>
                     <th scope="col">Email</th>
-
-                    <th scope="col">Ajout RDV</th>
-                    <th scope="col">Profil</th>
+                    <th scope="col">RDV</th>
+                    <th scope="col">Edit</th>
                     <th scope="col">Supprimer</th>
                 </tr>
                 </thead>
@@ -26,17 +26,15 @@
                         <td ><?= $obj['birthdate']; ?></td>
                         <td ><?= $obj['phone']; ?></td>
                         <td ><?= $obj['mail']; ?></td>
-                        <td>
+                        <td ><?= $obj['dateHour']; ?></td>
 
-                            <a  class="btn btn-info" href="/ajoutrendezvous&id=<?= $obj['id']; ?>">Ajouter Rdv</a>
-                        </td>
                         <td >
-                            <a  class="btn btn-info" href="/profilpatient&id=<?= $obj['id']; ?>">Editer</a>
+                            <a  class="btn btn-info" href="/changerdv&id=<?= $obj['idapp']; ?>">Editer</a>
                         </td>
                         <td>
                             <form action="supprimerpatient" method="post">
                                 <input name="page" type="hidden" value="<?php if(!empty($_GET['p'])){ echo $_GET['p'];} ?>">
-                                <input name="id" type="hidden" value="<?= $obj['id']; ?>">
+                                <input name="id" type="hidden" value="<?= $obj['idapp']; ?>">
                                 <button class="btn btn-danger">Supprimer</button>
                             </form>
                         </td>
@@ -62,7 +60,7 @@
                             ?>
 
                             <li class="page-item"><a class="page-link"
-                                                     href="index.php?page=listepatients&p=<?= $i; ?>"><?= $i; ?></a>
+                                                     href="index.php?page=listerendezvous&p=<?= $i; ?>"><?= $i; ?></a>
                             </li>
 
                         <?php }
@@ -70,6 +68,9 @@
                     ?>
                 </ul>
             </nav>
-        <?php } ?>
+        <?php }else{ ?>
+            <h2>Aucun rendez-vous accéder à la liste des patients ?</h2>
+            <a class="btn btn-success" href="/listepatients"> Accéder à la liste des patients</a>
+        <?php }?>
     </div>
 </div>

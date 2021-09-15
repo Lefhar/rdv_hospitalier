@@ -8,7 +8,7 @@ class ajoutrendezvous
         $ajout = new postrendezvousModel();
         $data = $ajout->post();
         if($data['success']){
-            header('Location: index.php?page=listerendezvous');
+            header('Location: index.php?page=listepatients');
         }
         include(baseDir . 'views/header.php');
         include(baseDir . 'views/ajout-rendezvous.php');

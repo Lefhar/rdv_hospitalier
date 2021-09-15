@@ -24,8 +24,8 @@ Class route{
             $controller = new $_GET['page']();
             $controller->index();
         }else{
-            include(baseDir.'controllers/home.php');
-            $patients = new home();
+            include(baseDir.'controllers/listepatients.php');
+            $patients = new listepatients();
            $patients->index();
 
         }

@@ -1,6 +1,6 @@
 <?php
 
-class modifierpatientModel
+class changerdvModel
 {
     private $db; // déclaration de la variable de connexion
     public $id;
@@ -37,24 +37,21 @@ class modifierpatientModel
     {
         $data = array();
         $data['success'] = false;
-        $patients = $this->db->prepare('SELECT * FROM patients  where id=?');
+        $patients = $this->db->prepare('SELECT patients.id idpatient, appointments.id as idapp, patients.lastname,patients.firstname, patients.birthdate,patients.phone, patients.mail, appointments.dateHour FROM appointments join patients on idPatients=patients.id  where appointments.id=?');
 
         $patients->execute(array($this->getId()));
-        $data['profil'] = $patients->fetch();
-        $rdv = $this->db->prepare('SELECT * FROM appointments  where idPatients =?');
-        $rdv->execute(array($this->getId()));
-        $data['rdv'] = $rdv->fetchAll();
+        $data['rdv'] = $patients->fetch();
+
         if ($_POST) {
-            if (empty($_POST['lastname']) or empty($_POST['firstname']) or empty($_POST['birthdate']) or empty($_POST['mail'])) {
+            if (empty($_POST['dateHour'])) {
                 $data['error'] = "Veuillez remplir les champs obligatoire *";
             } else {
 
-                $stmt = $this->db->prepare("update patients set lastname =?, firstname =?, birthdate =?, phone=?, mail=? where id=?");
-                $stmt->execute(array($_POST['lastname'], $_POST['firstname'], $_POST['birthdate'], $_POST['phone'], $_POST['mail'], $this->getId()));
+                $stmt = $this->db->prepare("update appointments set dateHour=? where id=?");
+                $stmt->execute(array($_POST['dateHour'], $this->getId()));
                 $data['success'] = true;
             }
         }
         return $data;
     }
-
 }
