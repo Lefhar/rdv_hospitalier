@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row p-2">
-        <?php if (!empty($data)) { ?>
+        <?php if (!empty($data['patients'])) { ?>
                 <h2>Rechercher un patient</h2>
             <form action="/searchpatients" class="row g-2">
                 <div class="col-10">

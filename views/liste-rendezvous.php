@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row p-2">
         <h1>Listes des rendez-vous</h1>
-        <?php if (!empty($data)) { ?>
+        <?php if (!empty($data['patients'])) { ?>
 
             <?php if(!empty($data['error'])){echo '<div class="alert alert-danger" role="alert">'.$data['error'].'</div>';}?>
             <a class="btn btn-success" href="/ajoutrendezvous"> Ajouter un rendez-vous</a>
