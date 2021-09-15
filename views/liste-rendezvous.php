@@ -4,6 +4,7 @@
         <?php if (!empty($data)) { ?>
 
             <?php if(!empty($data['error'])){echo '<div class="alert alert-danger" role="alert">'.$data['error'].'</div>';}?>
+            <a class="btn btn-success" href="/ajoutrendezvous"> Ajouter un rendez-vous</a>
             <table class="table">
                 <thead>
                 <tr>

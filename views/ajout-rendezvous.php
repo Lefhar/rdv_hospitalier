@@ -5,6 +5,7 @@
         <?php if (!empty($data['error'])) {
             echo '<div class="alert alert-danger" role="alert">' . $data['error'] . '</div>';
         } ?>
+        <?php if(!empty($data)&&!empty($_GET['id'])){?>
         <form action="" method="post">
 
             <div class="form-group">
@@ -20,5 +21,14 @@
                 <button type="submit" class="btn btn-primary">Ajouter le rendez-vous</button>
             </div>
         </form>
+        <?php }else{?>
+            <h2>Vous devez d'abord séléctionner un patient</h2>
+            <div class="col-6">
+            <a href="/listepatients" class="btn btn-warning"> Accéder à la liste des patients</a>
+            </div>
+        <div class="col-6">
+            <a href="/ajoutpatientrendezvous" class="btn btn-warning"> Ajouter un patient et un rendez-vous</a>
+        </div>
+        <?php }?>
     </div>
 </div>
