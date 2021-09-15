@@ -4,7 +4,7 @@ class searchpatientsModel
 {
     private $db; // déclaration de la variable de connexion
     public $page;
-    public $search = "";
+    public string $search = "";
 
     /**
      * @brief  construction l'objet de la connexion avec l'ordre de se connecté à la bdd par la class Database
@@ -30,11 +30,17 @@ class searchpatientsModel
         $this->search = $search;
     }
 
+    /**
+     * @return int
+     */
     public function getPage():int
     {
         return (int)$this->page;
     }
 
+    /**
+     * @return string
+     */
     public function getSearch():string
     {
         return $this->search;
