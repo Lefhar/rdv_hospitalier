@@ -47,7 +47,7 @@ class searchpatientsModel
         $patientParPage = 10; //Nous allons afficher 5 messages par page.
         $countpatient = $this->db->prepare('SELECT *   FROM  patients where lastname like ? or  firstname like ? ');
         $q = $this->getSearch();
-        $countpatient->execute(array($q, $q));
+        $countpatient->execute(array("%".$q."%", "%".$q."%"));
         $total =  $countpatient->rowCount();
 
         //Nous allons maintenant compter le nombre de pages.
@@ -68,8 +68,8 @@ class searchpatientsModel
         $debut = ($data['pageActuelle'] - 1) * $patientParPage;
         $listpatients = $this->db->prepare('SELECT * FROM patients where lastname like :lastname or  firstname like :firstname ORDER BY `id` DESC LIMIT :debut, :nombre');
 
-        $listpatients->bindParam(':lastname', $q);
-        $listpatients->bindParam(':firstname', $q);
+        $listpatients->bindValue(':lastname', "%".$q."%");
+        $listpatients->bindValue(':firstname', "%".$q."%");
         $listpatients->bindParam(':debut', $debut, PDO::PARAM_INT);
         $listpatients->bindParam(':nombre', $patientParPage, PDO::PARAM_INT);
         $listpatients->execute();
