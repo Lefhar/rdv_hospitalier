@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row p-2">
-        <?php if (!empty($data)) { ?>
-                <h2>Rechercher un patient</h2>
+
+            <h2>Rechercher un patient</h2>
             <form action="/searchpatients" class="row g-2">
                 <div class="col-10">
                     <label for="q" class="visually-hidden"></label>
@@ -13,6 +13,7 @@
                     <button type="submit" class="btn btn-primary mb-3">rechercher</button>
                 </div>
             </form>
+        <?php if (!empty($data['patients'])) { ?>
             <a class="btn btn-success" href="/ajoutpatient"> Ajouter un patient</a>
             <?php if (!empty($data['error'])) {
                 echo '<div class="alert alert-danger" role="alert">' . $data['error'] . '</div>';
@@ -79,7 +80,7 @@
                             ?>
 
                             <li class="page-item"><a class="page-link"
-                                                     href="index.php?page=listepatients&p=<?= $i; ?>"><?= $i; ?></a>
+                                                     href="index.php?page=searchpatients=<?=$_GET['q'];?>&listepatients&p=<?= $i; ?>"><?= $i; ?></a>
                             </li>
 
                         <?php }
@@ -88,8 +89,8 @@
                 </ul>
             </nav>
         <?php } else { ?>
-            <h2>Aucun patient veuillez ajouter un patient</h2>
-            <a class="btn btn-success" href="/ajoutpatient"> Ajouter un patient</a>
+            <h2>Aucun patient n'a était trouvé</h2>
+
         <?php } ?>
     </div>
 </div>
