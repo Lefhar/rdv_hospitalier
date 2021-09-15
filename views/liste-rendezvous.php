@@ -32,7 +32,7 @@
                             <a  class="btn btn-info" href="/changerdv&id=<?= $obj['idapp']; ?>">Editer</a>
                         </td>
                         <td>
-                            <form action="supprimerpatient" method="post">
+                            <form action="supprimerrendezvous" method="post">
                                 <input name="page" type="hidden" value="<?php if(!empty($_GET['p'])){ echo $_GET['p'];} ?>">
                                 <input name="id" type="hidden" value="<?= $obj['idapp']; ?>">
                                 <button class="btn btn-danger">Supprimer</button>
