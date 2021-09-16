@@ -28,9 +28,9 @@ class listerendezvousModel
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $data = array();
         $patientParPage = 10; //Nous allons afficher 5 messages par page.
-        $countpatient = $this->db->prepare('SELECT * FROM appointments join patients on idPatients=patients.id ');
-        $countpatient->execute();
-        $total =  $countpatient->rowCount();
+        $countappointments = $this->db->prepare('SELECT * FROM appointments join patients on idPatients=patients.id ');
+        $countappointments->execute();
+        $total =  $countappointments->rowCount();
 
         //Nous allons maintenant compter le nombre de pages.
         $data['countpage'] = ceil($total / $patientParPage);
