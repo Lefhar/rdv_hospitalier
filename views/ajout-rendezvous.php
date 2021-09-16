@@ -9,7 +9,7 @@
         <form action="" method="post">
 
             <div class="form-group">
-                <label for="dateHour">Ajouter un rendez-vous :</label>
+                <label for="dateHour">Ajouter un rendez-vous :  *</label>
                 <input type="datetime-local" class="form-control" id="dateHour" name="dateHour"
                        value="<?php if (!empty($_POST['dateHour'])) {
                            echo $_POST['dateHour'];
