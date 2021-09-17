@@ -32,7 +32,7 @@
                 <a class="nav-link" href="/ajoutrendezvous"> Ajouter un rendez-vous</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="/ajoutpatientrendezvous"> Ajouter un patient et unrendez-vous</a>
+                <a class="nav-link" href="/ajoutpatientrendezvous"> Ajouter un patient et un rendez-vous</a>
             </li>
         </ul>
 
