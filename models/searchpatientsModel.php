@@ -4,7 +4,7 @@ class searchpatientsModel
 {
     private $db; // déclaration de la variable de connexion
     public $page;
-    public  $search = "";
+    public string $search = "";
 
     /**
      * @brief  construction l'objet de la connexion avec l'ordre de se connecté à la bdd par la class Database

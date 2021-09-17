@@ -21,7 +21,7 @@
                 <input type="tel" class="form-control" id="phone"  name="phone"   placeholder="Votre numéro de téléphone" pattern="[0-9]{10}" value="<?php if(!empty($_POST['firstname'])){echo $_POST['phone'];}?>">
             </div>
             <div class="form-group">
-                <label for="mail">Email : *</label>
+                <label for="mail">Email : *git</label>
                 <input type="email" class="form-control" id="mail"  name="mail"   placeholder="Votre email"  value="<?php if(!empty($_POST['mail'])){echo $_POST['mail'];}?>" required>
             </div>
             <div class="form-group">
